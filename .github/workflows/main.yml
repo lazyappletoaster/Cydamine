@@ -91,6 +91,14 @@ jobs:
             set -x
             cd Application/Dopamine/Resources
             ./download_bootstraps.sh
+            
+      - name: Install litehook
+        run: |
+            set -x
+            git clone https://github.com/theos/litehook.git
+            cd litehook
+            make install DESTDIR="${BASEDIR}/.include"
+            cd $BASEDIR
 
       - name: Build
         run: |
