@@ -49,7 +49,7 @@ xpc_object_t xpc_dictionary_get_value_hook(xpc_object_t xdict, const char *key)
 			}
 			for (NSString *daemonPlistName in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/System/Library/LaunchDaemons/" error:nil]) {
 				if ([daemonPlistName.pathExtension isEqualToString:@"plist"]) {
-					xpc_dictionary_add_launch_daemon_plist_at_path(origXvalue, [@"/System/Library/LaunchDaemons/"stringByAppendingPathComponent:daemonPlistName].fileSystemRepresentation);
+					xpc_dictionary_add_launch_daemon_plist_at_path(origXvalue, [@"/System/Library/LaunchDaemons/" stringByAppendingPathComponent:daemonPlistName].fileSystemRepresentation);
 				}
 			}
 			for (NSString *daemonPlistName in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/Library/LaunchDaemons" error:nil]) {
